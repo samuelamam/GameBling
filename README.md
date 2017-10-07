@@ -2,7 +2,9 @@ PHP7+NGINX
 
 调试域名为www.game.cc
 
-控制器 admin-后台 
+控制器 admin-后台 index-前台
+
+所有模板与静态文件都在Views对应目录下 
 
 在nginx vhost下添加伪静态（调试模式）
 
