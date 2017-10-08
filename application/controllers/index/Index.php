@@ -13,6 +13,7 @@ class Index extends CI_Controller
 
 	public function Index()
 	{
-		echo '前台默认主页';
+		$this->load->view('main/simple.html');
+		// $this->load->view('main');
 	}
 }
