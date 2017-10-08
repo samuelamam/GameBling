@@ -13,6 +13,6 @@ class Index extends CI_Controller
 
 	public function Index()
 	{
-		echo '前台默认主123123页';
+		echo '前台默认主页';
 	}
 }
