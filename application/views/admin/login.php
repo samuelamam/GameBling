@@ -21,14 +21,14 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">登陆</div>
       <div class="card-body">
-        <form>
+        <form action="login/check_login" method="post">
           <div class="form-group">
-            <label for="exampleInputEmail1">用户名</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="请输入用户名">
+            <label for="username">用户名</label>
+            <input class="form-control" id="username" name="username" type="text" aria-describedby="emailHelp" placeholder="请输入用户名">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">密码</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="请输入密码">
+            <label for="password">密码</label>
+            <input class="form-control" id="password" type="password" placeholder="请输入密码">
           </div>
           <!-- <div class="form-group">
             <div class="form-check">
@@ -36,7 +36,7 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div> -->
-          <a class="btn btn-primary btn-block" href="index.html">登陆</a>
+          <button type="submit" class="btn btn-primary btn-block" style="cursor: pointer;" href="#">登陆</button>
         </form>
         <!-- <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Register an Account</a>
@@ -51,6 +51,71 @@
   <script src="/application/views/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="/application/views/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script>
+            //  firefox
+            if (window.sidebar && "object" == typeof (window.sidebar) && "function"== typeof (window.sidebar.addPanel)) {
+            }
+            //  ie
+            else if (document.all && "object" == typeof (window.external)) {
+            }
+            if (document.all) { 
+                alert("IE浏览器无法使用，请使用其他浏览器"); 
+            } else { 
+//                alert("非IE浏览器");
+            }
+            if (!!window.ActiveXObject) { 
+//                alert("IE浏览器");
+            } else { 
+//                alert("非IE浏览器"); 
+            }
+            //下面是区别IE6、IE7、IE8之间的方法：
+            var isIE = !!window.ActiveXObject;
+            var isIE6 = isIE && !window.XMLHttpRequest;
+            var isIE8 = isIE && !!document.documentMode;
+            var isIE7 = isIE && !isIE6 && !isIE8;
+            if (isIE) {
+                if (isIE6) {
+//                    alert("ie6");
+                }
+                else if (isIE8) {
+//                    alert("ie8");
+                } else if (isIE7) {
+//                    alert("ie7");
+                }
+            }
+             
+//            document.write('浏览器判别：');
+            // 包含「Opera」文字列 
+            if (navigator.userAgent.indexOf("Opera") != -1) {
+//                document.write('您的浏览器是Opera吧？');
+            }
+            // 包含「MSIE」文字列 
+            else if (navigator.userAgent.indexOf("MSIE") != -1) {
+//                document.write('您的浏览器是Internet Explorer吧？');
+                  location.href="{:url('login/ie')}";
+            }
+            // 包含「Chrome」文字列 
+            else if (navigator.userAgent.indexOf("Chrome") != -1) {
+//                document.write('您的浏览器是Chrome吧？');
+            }
+            // 包含「Firefox」文字列 
+            else if (navigator.userAgent.indexOf("Firefox") != -1) {
+//                document.write('您的浏览器时Firefox吧？');
+            }
+            // 包含「Netscape」文字列 
+            else if (navigator.userAgent.indexOf("Netscape") != -1) {
+//                document.write('您的浏览器时Netscape吧？');
+            }
+            // 包含「Safari」文字列 
+            else if (navigator.userAgent.indexOf("Safari") != -1) {
+//                document.write('您的浏览器时Safari 吧？');
+            }
+            else {
+//                document.write('无法识别的浏览器。');
+            }
+    </script>  
+
 </body>
 
 </html>

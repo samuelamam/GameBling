@@ -11,4 +11,9 @@ class Login extends CI_Controller
 		$this->load->helper('url');
 		$this->load->view('admin/login');
 	}
+
+	public function check_login()
+	{
+		echo $this->input->post('username');
+	}
 }

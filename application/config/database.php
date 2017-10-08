@@ -74,13 +74,14 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn' => 'mysql:host=localhost',
+	'port' => '3306',
 	'hostname' => '127.0.0.1',
 	'username' => 'root',
 	'password' => 'root',
 	'database' => 'gamebling',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
+	'dbdriver' => 'PDO',
+	'dbprefix' => 'gamebling',
 	'pconnect' => TRUE,
 //	'db_debug' => (ENVIRONMENT !== 'production'),
 	'db_debug' => TRUE,
