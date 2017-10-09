@@ -54,12 +54,11 @@
                                         <i class="fa fa-cog fa-fw pull-right"></i>
                                             下单信息
                                         </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> 退出登录</a>
-                                        </li>
-                                    </ul>
-
+                                    </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> 退出登录</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -106,13 +105,6 @@
                                 <i class="fa fa-globe"></i> <span>test</span>
                             </a>
                         </li>
-<!-- 
-                        <li class="active">
-                            <a href="simple.html">
-                                <i class="fa fa-glass"></i> <span>Simple tables</span>
-                            </a>
-                        </li> -->
-
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -127,24 +119,75 @@
                             <div class="col-md-12 col-xs-12">
                                 <div class="panel">
                                     <ul class="nav nav-pills nav-justified">
-                                        <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="#">SVN</a></li>
-                                        <li><a href="#">iOS</a></li>
-                                        <li><a href="#">VB.Net</a></li>
-                                        <li><a href="#">Java</a></li>
-                                        <li><a href="#">PHP</a></li>
+                                        <li class="active"><a href="#">六test</a></li>
+                                        <li class="disabled"><a href="#">test</a></li>
+                                        <li class="disabled"><a href="#">test</a></li>
+                                        <li class="disabled"><a href="#">test</a></li>
+                                        <li class="disabled"><a href="#">test</a></li>
+                                        <li class="disabled"><a href="#">test</a></li>
                                     </ul>
-                                    <header class="panel-heading">
+                                    <header class="panel-heading" style="text-align:center;">
                                         testtest
                                     </header>
-                                    <div class="panel-body">
-                                        <div class="col-xs-12 col-sm-12" style="text-align: center;">
-                                            <table id="table-data"></table>
-                                            <div class="space-2"></div>
-                                            <div style="text-align:left;">
-                                                <div id="paginator-div"></div>
-                                            </div>
-                                        </div>
+                                    <div class="panel-body col-xs-12 col-lg-4">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>名称</th>
+                                                    <th>城市</th>
+                                                    <th>邮编</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tanmay</td>
+                                                    <td>Bangalore</td>
+                                                    <td>560001</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sachin</td>
+                                                    <td>Mumbai</td>
+                                                    <td>400003</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Uma</td>
+                                                    <td>Pune</td>
+                                                    <td>411027</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.panel-body -->
+                                    <div class="panel-body col-xs-12 col-lg-4">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>名称</th>
+                                                    <th>城市</th>
+                                                    <th>邮编</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tanmay</td>
+                                                    <td>Bangalore</td>
+                                                    <td>560001</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sachin</td>
+                                                    <td>Mumbai</td>
+                                                    <td>400003</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Uma</td>
+                                                    <td>Pune</td>
+                                                    <td>411027</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.panel-body -->
+                                    <div class="panel-body col-xs-12 col-lg-4">
+                                        <table class="table table-bordered" id="table3">
+                                        </table>
                                     </div><!-- /.panel-body -->
 
                                 </div><!-- /.panel -->
@@ -178,59 +221,71 @@
         <script src="/resources/assets/js/typeahead.jquery.min.js"></script>
 
         <script>
-            //列
-            var cols = [
-                { title: 'test', name: 'server_ip', width: 50, align: 'center', sortable: true},
-                { title: 'test', name: 'room_name', width: 50, align: 'center', sortable: true},
-                { title: 'test', name: 'business', width: 150, align: 'center', sortable: true},
-                { title: 'test', name: 'device_type', width: 50, align: 'center', sortable: true},
-                // { title: 'test', name: 'rate', width: 50, align: 'center', sortable: true,renderer: rate},
-                // { title: 'test', name: 'server_ip', width: 50, align: 'center', sortable: true,renderer: result},
-                // { title: 'setest', name: 'zreprit', width: 50, align: 'center', sortable: true,renderer: zreprit},
-                // { title: 'sete', name: 'special', width: 50, align: 'center', sortable: true,renderer: special},
-                { title: 'test', name: 'time', width: 50, align: 'center', sortable: true},
-
-            ];
-
-             //AJAX示例
-             console.log($('#room_name').val());
-            var mmg = $('#table-data').mmGrid({
-                cols: cols,
-                url: 'zinspect/daily/search_data',
-                method: 'post',
-                remoteSort: true,
-                root: 'items',
-                height: '600px',
-                fullWidthRows: true,
-                nowrap: true,
-                params: function () {
-                    return {
-                        "business":$('#business').val(),
-                        "server_ip":$('#server_ip').val(),
-                        "room_name":$('#room_name').val()
-                    };
-                },
-                plugins: [
-                    $('#paginator-div').mmPaginator({limitList: [50,100,150,200]})
-                ],
-                //表格显示索引列
-                indexCol: false,
-                indexColWidth: 45,
-                showBackboard: true,
-                //选择单元格
-                checkCol: true,
-                multiSelect: true,
-
+            $(".disabled").click(function (event) {
+                event.preventDefault();
             });
-            mmg.on('cellSelected', function (e, item, rowIndex, colIndex) {
-                if ($(e.target).is('.btn-info')) {
-                    e.stopPropagation();  //阻止事件冒泡
-                    postUrl = editUrl;
-                    validForm.resetForm();
-                    $('.form-group').removeClass('has-error');
-                    editForm(item);
-                }
+
+            $(function() { 
+                // 图形与表格实例化
+                $.post("index/Index/search_data",function(result){
+                //   var result = eval('(' + result + ')');
+                make_table(result)
+                });
             });
+
+            function make_table(result){
+                // var html_str1 = "";
+                // var html_str2 = "";
+                var html_str3 = "";
+
+                //   // 总报修表格说明
+                // html_str1 += '';
+                // html_str1 += '<tr>';
+                // html_str1 += '<th>月份/月</th>';
+                // html_str1 += '<th>报修数量/台</th>';
+                // html_str1 += '</tr>';
+                // for (var i in result.time) {
+                //     html_str1 += '<tr>';
+                //     html_str1 += '<td>'+result.time[i]+'</td>';
+                //     html_str1 += '<td>'+result.data[i]+'</td>';
+                //     html_str1 += '</tr>';
+                //   }
+
+                // html_str2 += '';
+                // html_str2 += '<tr>';
+                // html_str2 += '<th>月份/月</th>';
+                // html_str2 += '<th>报修数量/台</th>';
+                // html_str2 += '</tr>';
+                // for (var i in result.time) {
+                //     html_str2 += '<tr>';
+                //     html_str2 += '<td>'+result.time[i]+'</td>';
+                //     html_str2 += '<td>'+result.data[i]+'</td>';
+                //     html_str2 += '</tr>';
+                // }
+
+                html_str3 += '';
+                html_str3 += '<thead>';
+                html_str3 += '<tr>';
+                html_str3 += '<th>名称</th>';
+                html_str3 += '<th>城市</th>';
+                html_str3 += '<th>邮编</th>';
+                html_str3 += '</tr>';
+                html_str3 += '</thead>';
+                html_str3 += '<tbody>';
+                // for (var i in result.time) {
+                    html_str3 += '<tr>';
+                    html_str3 += '<td>Tnmay</td>';
+                    html_str3 += '<td>Bangalore</td>';
+                    html_str3 += '<td>560001</td>';
+                    html_str3 += '</tr>';
+                // }
+                html_str3 += '</tbody>';
+
+                // $('#table1').html(html_str1);
+                // $('#table2').html(html_str2);
+                $('#table3').html(html_str3);
+            }
+
         </script>
     </body>
 </html>

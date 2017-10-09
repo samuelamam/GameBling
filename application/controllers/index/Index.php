@@ -13,7 +13,20 @@ class Index extends CI_Controller
 
 	public function Index()
 	{
-		$this->load->view('main/simple.html');
+		$this->load->view('main/simple');
 		// $this->load->view('main');
+	}
+
+	public function search_data()
+	{
+		$item = $this->db->query("select * from gamebling_lhc_price")->result(true);
+        print_r($this->db->last_query());exit;
+        foreach ($item as $key => $value) {
+            $value[$key] = $value['value'];
+            $price[$key] = $value['price'];
+        }
+        $_data['value'] = $value;
+        $_data['price'] = $price;
+
 	}
 }
