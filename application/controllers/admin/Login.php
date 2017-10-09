@@ -8,6 +8,7 @@ class Login extends CI_Controller
 
 	public function index()
 	{
+		$this->session->sess_destroy();
 		$this->load->view('admin/login');
 	}
 
@@ -18,7 +19,7 @@ class Login extends CI_Controller
 
 		$this->load->model('sys_user');
 		$check = $this->sys_user->checklogin($username, $password);
-		
+
 		if (empty($check)) {
 			show_error('账号或密码错误！');
 			return;
