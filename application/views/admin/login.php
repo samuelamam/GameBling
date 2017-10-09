@@ -21,14 +21,14 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">登陆</div>
       <div class="card-body">
-        <form action="login/check_login" method="post">
+        <form action="/admin/login/check_login" method="post">
           <div class="form-group">
             <label for="username">用户名</label>
             <input class="form-control" id="username" name="username" type="text" aria-describedby="emailHelp" placeholder="请输入用户名">
           </div>
           <div class="form-group">
             <label for="password">密码</label>
-            <input class="form-control" id="password" type="password" placeholder="请输入密码">
+            <input class="form-control" id="password" name="password" type="password" placeholder="请输入密码">
           </div>
           <!-- <div class="form-group">
             <div class="form-check">

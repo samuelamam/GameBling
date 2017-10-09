@@ -8,12 +8,29 @@ class Login extends CI_Controller
 
 	public function index()
 	{
-		$this->load->helper('url');
 		$this->load->view('admin/login');
 	}
 
 	public function check_login()
 	{
-		echo $this->input->post('username');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		$this->load->model('sys_user');
+		$check = $this->sys_user->checklogin($username, $password);
+		
+		if (empty($check)) {
+			show_error('账号或密码错误！');
+			return;
+		}
+
+		$this->session->set_userdata(
+			[
+				'id' => $check['id'],
+				'admin_user' => $check['user'],
+			]
+		);
+
+		redirect('admin/index');
 	}
 }

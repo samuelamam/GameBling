@@ -61,4 +61,7 @@ p {
 		<?php echo $message; ?>
 	</div>
 </body>
+<script type="text/javascript">
+	setTimeout(function(){window.history.back();}, 3000);
+</script>
 </html>
