@@ -36,4 +36,4 @@ class LoginCheck
 	}
 }
 
-LoginCheck::LoginCheck();
+// LoginCheck::LoginCheck();

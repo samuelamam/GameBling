@@ -8,6 +8,7 @@
         <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
         <!-- bootstrap 3.0.2 -->
         <link href="/application/views/main/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/resources/assets/css/jquery-ui.custom.min.css"/>
         <!-- font Awesome -->
         <link href="/application/views/main/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
@@ -16,6 +17,10 @@
         <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
         <!-- Theme style -->
         <link href="/application/views/main/css/style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/mmGrid.css" id="main-ace-style"/>
+        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/theme/bootstrap/mmGrid-bootstrap.css" id="main-ace-style"/>
+        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/mmPaginator.css" id="main-ace-style"/>
+        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/theme/bootstrap/mmPaginator-bootstrap.css" id="main-ace-style"/>
     </head>
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
@@ -133,62 +138,12 @@
                                         testtest
                                     </header>
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <tr>
-                                                <th style="width: 10px">#</th>
-                                                <th>Task</th>
-                                                <th>Progress</th>
-                                                <th style="width: 40px">Label</th>
-                                            </tr>
-                                            <tr>
-                                                <td>1.</td>
-                                                <td>Update software</td>
-                                                <td>
-                                                    <div class="progress xs">
-                                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-red">55%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2.</td>
-                                                <td>Clean database</td>
-                                                <td>
-                                                    <div class="progress xs">
-                                                        <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-yellow">70%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3.</td>
-                                                <td>Cron job running</td>
-                                                <td>
-                                                    <div class="progress xs progress-striped active">
-                                                        <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-light-blue">30%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4.</td>
-                                                <td>Fix and squish bugs</td>
-                                                <td>
-                                                    <div class="progress xs progress-striped active">
-                                                        <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-green">90%</span></td>
-                                            </tr>
-                                        </table>
-                                        <div class="table-foot">
-                                            <ul class="pagination pagination-sm no-margin pull-right">
-                                            <li><a href="#">&laquo;</a></li>
-                                            <li><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">&raquo;</a></li>
-                                        </ul>
+                                        <div class="col-xs-12 col-sm-12" style="text-align: center;">
+                                            <table id="table-data"></table>
+                                            <div class="space-2"></div>
+                                            <div style="text-align:left;">
+                                                <div id="paginator-div"></div>
+                                            </div>
                                         </div>
                                     </div><!-- /.panel-body -->
 
@@ -202,14 +157,79 @@
                 </aside><!-- /.right-side -->
             </div><!-- ./wrapper -->
         </div><!-- ./wrapper -->
+        <script>
+            //列
+            var cols = [
+                { title: 'test', name: 'server_ip', width: 50, align: 'center', sortable: true},
+                { title: 'test', name: 'room_name', width: 50, align: 'center', sortable: true},
+                { title: 'test', name: 'business', width: 150, align: 'center', sortable: true},
+                { title: 'test', name: 'device_type', width: 50, align: 'center', sortable: true},
+                // { title: 'test', name: 'rate', width: 50, align: 'center', sortable: true,renderer: rate},
+                // { title: 'test', name: 'server_ip', width: 50, align: 'center', sortable: true,renderer: result},
+                // { title: 'setest', name: 'zreprit', width: 50, align: 'center', sortable: true,renderer: zreprit},
+                // { title: 'sete', name: 'special', width: 50, align: 'center', sortable: true,renderer: special},
+                { title: 'test', name: 'time', width: 50, align: 'center', sortable: true},
 
+            ];
+
+             //AJAX示例
+             console.log($('#room_name').val());
+            var mmg = $('#table-data').mmGrid({
+                cols: cols,
+                url: 'zinspect/daily/search_data',
+                method: 'post',
+                remoteSort: true,
+                root: 'items',
+                height: '600px',
+                fullWidthRows: true,
+                nowrap: true,
+                params: function () {
+                    return {
+                        "business":$('#business').val(),
+                        "server_ip":$('#server_ip').val(),
+                        "room_name":$('#room_name').val()
+                    };
+                },
+                plugins: [
+                    $('#paginator-div').mmPaginator({limitList: [50,100,150,200]})
+                ],
+                //表格显示索引列
+                indexCol: false,
+                indexColWidth: 45,
+                showBackboard: true,
+                //选择单元格
+                checkCol: true,
+                multiSelect: true,
+
+            });
+            mmg.on('cellSelected', function (e, item, rowIndex, colIndex) {
+                if ($(e.target).is('.btn-info')) {
+                    e.stopPropagation();  //阻止事件冒泡
+                    postUrl = editUrl;
+                    validForm.resetForm();
+                    $('.form-group').removeClass('has-error');
+                    editForm(item);
+                }
+            });
+        </script>
         <!-- jQuery 2.0.2 -->
         <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
         <script src="/application/views/main/js/jquery.min.js" type="text/javascript"></script>
-
+        <script src="/resources/assets/js/jquery-ui.min.js"></script>
         <!-- Bootstrap -->
         <script src="/application/views/main/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Director App -->
         <script src="/application/views/main/js/Director/app.js" type="text/javascript"></script>
+
+        <script src="/resources/plugins/mmGrid-master/mmGrid.js"></script>
+        <script src="/resources/plugins/mmGrid-master/mmPaginator.js"></script>
+        <script src="/resources/assets/js/jquery.validate.min.js"></script>
+        <script src="/resources/plugins/input/input.js"></script>
+        <script src="/resources/plugins/bootstrap-dialog/js/bootstrap-dialog.js"></script>
+        <script src="/resources/common/js/common.js"></script>
+        <script src="/resources/assets/js/chosen.jquery.min.js"></script>
+        <script src="/resources/plugins/form.js"></script>
+        <script src="/resources/plugins/jquery.form.js"></script>
+        <script src="/resources/assets/js/typeahead.jquery.min.js"></script>
     </body>
 </html>
