@@ -28,5 +28,6 @@ class Index extends CI_Controller
         $_data['value'] = $value;
         $_data['price'] = $price;
 
+        echo json_encode($_data);
 	}
 }

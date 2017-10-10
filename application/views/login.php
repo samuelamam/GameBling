@@ -103,7 +103,7 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
                         <input id="captcha" type="text" class="form-control" name="captcha" placeholder="验证码" style="width: 200px">
 
-                        <img id="code" src="/index/Login/getCode" alt="看不清楚，换一张" style="cursor: pointer; vertical-align:middle;" onclick="javascript:newgdcode(this,this.src);" />
+                        <img id="code" src="/index/login/getCode" alt="看不清楚，换一张" style="cursor: pointer; vertical-align:middle;" onclick="javascript:newgdcode(this,this.src);" />
                     </div>
                     <div class="form-group">
                         <!-- Button -->
@@ -131,11 +131,11 @@
           $("#errAlert").fadeTo(300,1.5);
         }else{
             // alert(password);
-            $.post('Login/tijiao',{"user":user,"password":password,"captcha":captcha},function(result){
+            $.post('/index/login/tijiao',{"user":user,"password":password,"captcha":captcha},function(result){
               if (result=='ok') {
               window.location.href='/';
               }else{
-                $("#errAlert").fadeTo(200,1.5);
+                $("#errAlert").fadeTo(200,1.5); 
               }
             });
         }
@@ -149,7 +149,7 @@
   });
 
   $('#code').on('click', function(){
-    $.post('Login/getCode',{},function(result){});
+    $.post('/index/login/getCode',{},function(result){});
 
   });
 

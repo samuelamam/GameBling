@@ -19,6 +19,7 @@ class Login extends CI_Controller {
 		$user = $this->input->post('user', TRUE);
 		$password = $this->input->post('password', TRUE);
 		$captcha = $this->input->post('captcha', TRUE);
+		print_r(123);exit;
 		$data = $this->db->query("SELECT passwd from sys_user WHERE `user` = 'admin'")->result();
 		print_r($data);
 		exit;

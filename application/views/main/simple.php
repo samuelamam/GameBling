@@ -17,10 +17,6 @@
         <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
         <!-- Theme style -->
         <link href="/application/views/main/css/style.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/mmGrid.css" id="main-ace-style"/>
-        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/theme/bootstrap/mmGrid-bootstrap.css" id="main-ace-style"/>
-        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/mmPaginator.css" id="main-ace-style"/>
-        <link rel="stylesheet" href="/resources/plugins/mmGrid-master/theme/bootstrap/mmPaginator-bootstrap.css" id="main-ace-style"/>
     </head>
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
@@ -209,8 +205,6 @@
         <!-- Director App -->
         <script src="/application/views/main/js/Director/app.js" type="text/javascript"></script>
 
-        <script src="/resources/plugins/mmGrid-master/mmGrid.js"></script>
-        <script src="/resources/plugins/mmGrid-master/mmPaginator.js"></script>
         <script src="/resources/assets/js/jquery.validate.min.js"></script>
         <script src="/resources/plugins/input/input.js"></script>
         <script src="/resources/plugins/bootstrap-dialog/js/bootstrap-dialog.js"></script>
