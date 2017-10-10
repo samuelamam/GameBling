@@ -16,7 +16,7 @@ class LoginCheck
 			redirect('/index/login');
 		}
 
-		if ($c_name['1'] == 'login') {
+		if ($c_name['1'] == 'login' || $c_name['1'] == 'Login') {
 			return;
 		}
 
@@ -36,4 +36,4 @@ class LoginCheck
 	}
 }
 
-// LoginCheck::LoginCheck();
+LoginCheck::LoginCheck();
