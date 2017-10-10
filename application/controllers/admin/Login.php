@@ -18,7 +18,7 @@ class Login extends CI_Controller
 		$password = $this->input->post('password');
 
 		$this->load->model('sys_user');
-		$check = $this->sys_user->checklogin($username, $password);
+		$check = $this->sys_user->check_login($username, $password);
 
 		if (empty($check)) {
 			show_error('账号或密码错误！');

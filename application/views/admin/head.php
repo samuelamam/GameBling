@@ -40,9 +40,15 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="/tables.html">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+            <span class="nav-link-text">统计数据</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<?=base_url().'admin/admin/list'?>">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">管理员管理</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="uesr_admin">
@@ -52,17 +58,17 @@
           </a>
           <ul class="sidenav-second-level collapse" id="uesr_admin">
             <li>
-              <a href="navbar.html">会员列表</a>
+              <a href="<?=base_url().'admin/user/userlist'?>">会员列表</a>
             </li>
             <li>
-              <a href="cards.html">增加会员</a>
+              <a href="<?=base_url().'admin/user/useradd'?>">增加会员</a>
             </li>
             <li>
-              <a href="cards.html">批量增加会员</a>
+              <a href="<?=base_url().'admin/user/userexcel'?>">批量增加会员</a>
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Example Pages</span>
@@ -81,8 +87,8 @@
               <a href="blank.html">Blank Page</a>
             </li>
           </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+        </li> -->
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-sitemap"></i>
             <span class="nav-link-text">Menu Levels</span>
@@ -112,7 +118,7 @@
               </ul>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
