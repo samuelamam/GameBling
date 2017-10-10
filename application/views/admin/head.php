@@ -45,17 +45,20 @@
             <span class="nav-link-text">Tables</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="uesr_admin">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#uesr_admin" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
+            <span class="nav-link-text">会员管理</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <ul class="sidenav-second-level collapse" id="uesr_admin">
             <li>
-              <a href="navbar.html">Navbar</a>
+              <a href="navbar.html">会员列表</a>
             </li>
             <li>
-              <a href="cards.html">Cards</a>
+              <a href="cards.html">增加会员</a>
+            </li>
+            <li>
+              <a href="cards.html">批量增加会员</a>
             </li>
           </ul>
         </li>

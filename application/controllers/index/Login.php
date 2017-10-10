@@ -19,7 +19,7 @@ class Login extends CI_Controller {
 		$user = $this->input->post('user', TRUE);
 		$password = $this->input->post('password', TRUE);
 		$captcha = $this->input->post('captcha', TRUE);
-		$mds5_pw = md5($password);
+		$mds5_pw = md5(PWKEY.$password);
 
 		// $data = $this->db->query("SELECT passwd from sys_user WHERE `user` = 'admin'")->result(true);
 		// print_r($data);
