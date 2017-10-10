@@ -22,6 +22,9 @@
         .input-group-addon {
             width: 10px;
         }
+        .background-color{
+            background-color:#ffffff;
+        }
     </style>
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
@@ -127,9 +130,16 @@
                                         <li class="disabled"><a href="#">test</a></li>
                                         <li class="disabled"><a href="#">test</a></li>
                                     </ul>
-                                    <header class="panel-heading" style="text-align:center;">
+                                </div>
+                            
+                                    <header class="panel-heading col-xs-12 col-lg-9" style="text-align:center;border-right:15px white solid">
                                         testtest
                                     </header>
+                                <header class="panel-heading col-xs-12 col-lg-3" style="text-align:center;border-left:10px white solid">
+                                        testtest123123
+                                    </header>
+                                <div>
+
                                     <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
                                         <table class="table table-bordered" id="table1">
                                         </table>
