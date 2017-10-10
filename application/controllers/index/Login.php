@@ -19,26 +19,31 @@ class Login extends CI_Controller {
 		$user = $this->input->post('user', TRUE);
 		$password = $this->input->post('password', TRUE);
 		$captcha = $this->input->post('captcha', TRUE);
-		print_r(123);exit;
-		$data = $this->db->query("SELECT passwd from sys_user WHERE `user` = 'admin'")->result();
-		print_r($data);
-		exit;
+		$mds5_pw = md5($password);
+
+		// $data = $this->db->query("SELECT passwd from sys_user WHERE `user` = 'admin'")->result(true);
+		// print_r($data);
+		// exit;
 		$total = $this->db
-		->select('password')
+		->select('id')
+		->select('passwd')
 		->from('sys_user')
 		->where('user',$user)
 		// ->like($_like)
 		->get()
 		->row_array();
-		// echo $total['password'];exit;
+
+		// echo $total['id'];exit;
 		// session_unset();
 		// session_destroy();
 		// session_start();
-		if ($total['password'] == $password & $_SESSION['code'] == $captcha){
-			$_SESSION['user'] = $user;
-        	$_SESSION['password'] = $password;
-        	$lifeTime = 3600;
-        	setcookie(session_name(),session_id(),time() + $lifeTime,"/");
+		if ($total['passwd'] == $mds5_pw & $_SESSION['code'] == $captcha){
+			$_SESSION = '';
+			$_SESSION['index_user'] = $user;
+        	$_SESSION['id'] = $total['id'];
+        	// $lifeTime = 3600;
+        	// var_dump($_SESSION);
+        	// setcookie(session_name(),session_id(),time() + $lifeTime,"/main/simple.php");
         	// print_r($_SESSION);exit;
         	// echo session_name();
         	// echo session_id();exit;

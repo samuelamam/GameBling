@@ -50,6 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['admin'] = 'admin/index';#后台默认路径
-$route['default_controller'] = 'index/index';
+$route['default_controller'] = 'index/index/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
