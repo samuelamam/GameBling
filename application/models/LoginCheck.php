@@ -12,8 +12,9 @@ class LoginCheck
 	{
 		$c_name = explode('/', uri_string());
 
-		if ($c_name == FALSE) {
-			redirect('/index/login');
+		if ($c_name == FALSE || $c_name['0'] == '') {
+			redirect('/index/index');
+			return;
 		}
 
 		if ($c_name['1'] == 'login' || $c_name['1'] == 'Login') {
