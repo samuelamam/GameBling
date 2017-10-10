@@ -6,6 +6,7 @@ class Login extends CI_Controller {
 
 	public function index(){
 		// print_r(123);exit;
+		$this->session->sess_destroy();
 		$this->load->view('header');
 		$this->load->view('login');
 		$this->load->view('footer');
@@ -20,6 +21,7 @@ class Login extends CI_Controller {
 		$password = $this->input->post('password', TRUE);
 		$captcha = $this->input->post('captcha', TRUE);
 		$mds5_pw = md5(PWKEY.$password);
+		// print_r($mds5_pw);
 
 		// $data = $this->db->query("SELECT passwd from sys_user WHERE `user` = 'admin'")->result(true);
 		// print_r($data);

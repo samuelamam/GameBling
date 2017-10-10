@@ -18,6 +18,11 @@
         <!-- Theme style -->
         <link href="/application/views/main/css/style.css" rel="stylesheet" type="text/css" />
     </head>
+    <style>
+        .input-group-addon {
+            width: 10px;
+        }
+    </style>
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
@@ -52,7 +57,7 @@
                                         </a>
                                     </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> 退出登录</a>
+                                    <a href="<?=base_url('index/login/index')?>" id="logout"><i class="fa fa-ban fa-fw pull-right"></i> 退出登录</a>
                                 </li>
                             </ul>
                         </li>
@@ -125,66 +130,22 @@
                                     <header class="panel-heading" style="text-align:center;">
                                         testtest
                                     </header>
-                                    <div class="panel-body col-xs-12 col-lg-4">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>名称</th>
-                                                    <th>城市</th>
-                                                    <th>邮编</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tanmay</td>
-                                                    <td>Bangalore</td>
-                                                    <td>560001</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sachin</td>
-                                                    <td>Mumbai</td>
-                                                    <td>400003</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Uma</td>
-                                                    <td>Pune</td>
-                                                    <td>411027</td>
-                                                </tr>
-                                            </tbody>
+                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
+                                        <table class="table table-bordered" id="table1">
                                         </table>
-                                    </div><!-- /.panel-body -->
-                                    <div class="panel-body col-xs-12 col-lg-4">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>名称</th>
-                                                    <th>城市</th>
-                                                    <th>邮编</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tanmay</td>
-                                                    <td>Bangalore</td>
-                                                    <td>560001</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sachin</td>
-                                                    <td>Mumbai</td>
-                                                    <td>400003</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Uma</td>
-                                                    <td>Pune</td>
-                                                    <td>411027</td>
-                                                </tr>
-                                            </tbody>
+                                    </div>
+                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
+                                        <table class="table table-bordered" id="table2">
                                         </table>
-                                    </div><!-- /.panel-body -->
-                                    <div class="panel-body col-xs-12 col-lg-4">
+                                    </div>
+                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
                                         <table class="table table-bordered" id="table3">
                                         </table>
-                                    </div><!-- /.panel-body -->
+                                    </div>
+                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
+                                        <table class="table table-bordered" id="table4">
+                                        </table>
+                                    </div>
 
                                 </div><!-- /.panel -->
                             </div><!-- /.col -->
@@ -221,63 +182,92 @@
 
             $(function() { 
                 // 图形与表格实例化
-                $.post("index/Index/search_data",function(result){
-                //   var result = eval('(' + result + ')');
-                make_table(result)
+                $.post("Simple_contr/search_d",function(result){
+                    var result = eval('(' + result + ')');
+                    console.log(result);
+                    make_table(result)
                 });
             });
 
             function make_table(result){
-                // var html_str1 = "";
-                // var html_str2 = "";
+                var html_str1 = "";
+                var html_str2 = "";
                 var html_str3 = "";
+                var html_str4 = "";
 
-                //   // 总报修表格说明
-                // html_str1 += '';
-                // html_str1 += '<tr>';
-                // html_str1 += '<th>月份/月</th>';
-                // html_str1 += '<th>报修数量/台</th>';
-                // html_str1 += '</tr>';
-                // for (var i in result.time) {
-                //     html_str1 += '<tr>';
-                //     html_str1 += '<td>'+result.time[i]+'</td>';
-                //     html_str1 += '<td>'+result.data[i]+'</td>';
-                //     html_str1 += '</tr>';
-                //   }
+                html_str1 += '';
+                html_str1 += '<thead>';
+                html_str1 += '<tr>';
+                html_str1 += '<th style="text-align: center;width:15%">号码</th>';
+                html_str1 += '<th style="text-align: center;width:15%">赔率</th>';
+                html_str1 += '<th style="text-align: center;width:15%">金额</th>';
+                html_str1 += '</tr>';
+                html_str1 += '</thead>';
+                html_str1 += '<tbody>';
+                for (var i = 0; i < 12; i++) {
+                    html_str1 += '<tr>';
+                    html_str1 += '<td>'+result.value[i]+'</td>';
+                    html_str1 += '<td>'+result.price[i]+'</td>';
+                    html_str1 += '<td><input type="text" class="form-control"></td>';
+                    html_str1 += '</tr>';
+                }
 
-                // html_str2 += '';
-                // html_str2 += '<tr>';
-                // html_str2 += '<th>月份/月</th>';
-                // html_str2 += '<th>报修数量/台</th>';
-                // html_str2 += '</tr>';
-                // for (var i in result.time) {
-                //     html_str2 += '<tr>';
-                //     html_str2 += '<td>'+result.time[i]+'</td>';
-                //     html_str2 += '<td>'+result.data[i]+'</td>';
-                //     html_str2 += '</tr>';
-                // }
+                html_str2 += '';
+                html_str2 += '<thead>';
+                html_str2 += '<tr>';
+                html_str2 += '<th style="text-align: center;width:15%">号码</th>';
+                html_str2 += '<th style="text-align: center;width:15%">赔率</th>';
+                html_str2 += '<th style="text-align: center;width:15%">金额</th>';
+                html_str2 += '</tr>';
+                html_str2 += '</thead>';
+                html_str2 += '<tbody>';
+                for (var i = 12; i < 24; i++) {
+                    html_str2 += '<tr>';
+                    html_str2 += '<td>'+result.value[i]+'</td>';
+                    html_str2 += '<td>'+result.price[i]+'</td>';
+                    html_str2 += '<td><input type="text" class="form-control"></td>';
+                    html_str2 += '</tr>';
+                }
 
                 html_str3 += '';
                 html_str3 += '<thead>';
                 html_str3 += '<tr>';
-                html_str3 += '<th>名称</th>';
-                html_str3 += '<th>城市</th>';
-                html_str3 += '<th>邮编</th>';
+                html_str3 += '<th style="text-align: center;width:15%">号码</th>';
+                html_str3 += '<th style="text-align: center;width:15%">赔率</th>';
+                html_str3 += '<th style="text-align: center;width:15%">金额</th>';
                 html_str3 += '</tr>';
                 html_str3 += '</thead>';
                 html_str3 += '<tbody>';
-                // for (var i in result.time) {
+                for (var i = 24; i < 36; i++) {
                     html_str3 += '<tr>';
-                    html_str3 += '<td>Tnmay</td>';
-                    html_str3 += '<td>Bangalore</td>';
-                    html_str3 += '<td>560001</td>';
+                    html_str3 += '<td>'+result.value[i]+'</td>';
+                    html_str3 += '<td>'+result.price[i]+'</td>';
+                    html_str3 += '<td><input type="text" class="form-control"></td>';
                     html_str3 += '</tr>';
-                // }
+                }
                 html_str3 += '</tbody>';
 
-                // $('#table1').html(html_str1);
-                // $('#table2').html(html_str2);
+                html_str4 += '';
+                html_str4 += '<thead>';
+                html_str4 += '<tr>';
+                html_str4 += '<th style="text-align: center;width:15%">号码</th>';
+                html_str4 += '<th style="text-align: center;width:15%">赔率</th>';
+                html_str4 += '<th style="text-align: center;width:15%">金额</th>';
+                html_str4 += '</tr>';
+                html_str4 += '</thead>';
+                html_str4 += '<tbody>';
+                for (var i = 36; i < 49; i++) {
+                    html_str4 += '<tr>';
+                    html_str4 += '<td>'+result.value[i]+'</td>';
+                    html_str4 += '<td>'+result.price[i]+'</td>';
+                    html_str4 += '<td><input type="text" class="form-control"></td>';
+                    html_str4 += '</tr>';
+                }
+                html_str4 += '</tbody>';
+                $('#table1').html(html_str1);
+                $('#table2').html(html_str2);
                 $('#table3').html(html_str3);
+                $('#table4').html(html_str4);
             }
 
         </script>
