@@ -25,6 +25,7 @@ class User extends CI_Controller
 		$this->load->view('admin/head');
 		$this->load->view('admin/userexcel');
 	}
+
 	public function add()
 	{
 		$data = $this->input->post();
@@ -48,5 +49,19 @@ class User extends CI_Controller
 			return;
 		}
 		echo 'err_getuser';
+	}
+
+	public function edit()
+	{
+		$data = $this->input->post();
+		if (isset($data['passwd'])) {
+			$data['passwd'] = md5(PWKEY.$data['passwd']);
+		}
+
+		$this->load->model('sys_user');
+		$add = $this->sys_user->update_user($data, $data['user']);
+		if ($add) {
+			echo 'success';
+		}
 	}
 }

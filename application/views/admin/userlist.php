@@ -78,7 +78,7 @@
               <div class="col">
                 <div class="input-group input-group-lg">
                   <span class="input-group-addon">登陆账号名：</span>
-                  <input type="text" id="user" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <input type="text" disabled id="user" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
                 </div>
               </div>
             </div>
@@ -117,8 +117,8 @@
           </div>
         </div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+            <button class="btn btn-primary" id="checkedit">修改</button>
           </div>
         </div>
       </div>
@@ -180,6 +180,27 @@
           alert('数据库错误');
         });
     }
+
+    $('#checkedit').click(function () {
+      if ($('#user').val() == '' || $('#role').val() == '') {
+          $('#alert').text('登陆名、身份不能为空').addClass('show active');
+          return;
+        }
+        $.post(
+          '<?=base_url().'admin/user/edit'?>', 
+          {
+            user:$('#user').val(),
+            passwd:$('#passwd').val(),
+            role:$('#role').val(),
+            remarks:$('#remarks').val()
+          }, 
+          function (result) {
+            if (result == 'success') {
+              alert('修改成功');
+              window.location.reload();
+            }
+        });
+    });
   </script>
 </body>
 

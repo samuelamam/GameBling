@@ -12,6 +12,10 @@ class LoginCheck
 	{
 		$c_name = explode('/', uri_string());
 
+		if (isset($_SESSION['index_user']) && isset($_SESSION['admin_user'])) {
+			redirect(base_url());
+		}
+
 		if ($c_name == FALSE || $c_name['0'] == '') {
 			redirect('/index/index');
 			return;

@@ -70,9 +70,9 @@ class Sys_user extends CI_Model
 	/**
 	* @param data array
 	*/
-	public function update_user($data, $id)
+	public function update_user($data, $user)
 	{
-		$query = $this->db->where('id', $id)->update('sys_user', $data);
+		$query = $this->db->where('user', $user)->update('sys_user', $data);
 		if ($query) {
 			return TRUE;
 		}
