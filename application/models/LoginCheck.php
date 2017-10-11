@@ -17,9 +17,12 @@ class LoginCheck
 			return;
 		}
 
-		if ($c_name['1'] == 'login' || $c_name['1'] == 'Login') {
-			return;
+		if (isset($c_name['1'])) {
+			if ($c_name['1'] == 'login' || $c_name['1'] == 'Login') {
+				return;
+			}
 		}
+		
 
 		switch ($c_name['0']) {
 			case 'admin':

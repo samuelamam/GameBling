@@ -158,3 +158,4 @@
       </ul>
     </div>
   </nav>
+<?php $this->load->view('admin/loginout'); ?>

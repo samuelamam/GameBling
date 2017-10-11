@@ -37,8 +37,8 @@
                   <td><?=$v['remarks']?></td>
                   <td><?=$v['create_time']?></td>
                   <td>
-                    <a>修改</a>
-                    <a id="del">删除</a>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#edit">修改</button>
+                    <button type="button" class="btn btn-danger btn-sm">删除</button>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -63,7 +63,7 @@
       <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -91,11 +91,6 @@
     <!-- Custom scripts for all pages-->
     <script src="/application/views/admin/js/sb-admin.min.js"></script>
     <script src="/application/views/admin/js/sb-admin-datatables.min.js"></script>
-
-    <div class="alert alert-danger alert-dismissible fade in" role="alert">
-      <button id="del" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">删除</span></button>
-    </div>
-    
   </div>
 
   <script type="text/javascript">
