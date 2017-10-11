@@ -45,6 +45,12 @@
             <span class="nav-link-text">统计数据</span>
           </a>
         </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<?=base_url().'admin/order/orderlist'?>">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">下单数据</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="<?=base_url().'admin/admin/list'?>">
             <i class="fa fa-fw fa-wrench"></i>
@@ -63,8 +69,19 @@
             <li>
               <a href="<?=base_url().'admin/user/useradd'?>">增加会员</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="<?=base_url().'admin/user/userexcel'?>">批量增加会员</a>
+            </li> -->
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="uesr_admin">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#order" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">下注管理</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="order">
+            <li>
+              <a href="<?=base_url().'admin/stake/stakelist'?>">下注列表</a>
             </li>
           </ul>
         </li>

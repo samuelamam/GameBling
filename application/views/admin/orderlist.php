@@ -3,43 +3,43 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">会员中心</a>
+          <a href="index.html">订单记录</a>
         </li>
         <li class="breadcrumb-item active">列表</li>
       </ol>
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> 数据表格</div>
+          <i class="fa fa-table"></i> 订单记录</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>登陆名</th>
-                  <th>备注</th>
-                  <th>创建时间</th>
-                  <th>操作</th>
+                  <th>用户名</th>
+                  <th>组合</th>
+                  <th>购买号码</th>
+                  <th>下单金额（元）</th>
+                  <th>时间</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>登陆名</th>
-                  <th>备注</th>
-                  <th>创建时间</th>
-                  <th>操作</th>
+                  <th>用户名</th>
+                  <th>组合</th>
+                  <th>购买号码</th>
+                  <th>下单金额（元）</th>
+                  <th>时间</th>
                 </tr>
               </tfoot>
               <tbody>
-                <?php if (!empty($userarray)):?>
-                <?php foreach ($userarray as $v):?>
+                <?php if (!empty($orderarray)):?>
+                <?php foreach ($orderarray as $v):?>
                 <tr>
                   <td><?=$v['user']?></td>
-                  <td><?=$v['remarks']?></td>
-                  <td><?=$v['create_time']?></td>
-                  <td>
-                    <a>修改</a>
-                    <a id="del">删除</a>
-                  </td>
+                  <td><?=BUYTYPE[$v['buy_type']]?></td>
+                  <td><?=$v['buy_number']?></td>
+                  <td>￥<?=$v['price']?></td>
+                  <td><?=$v['time']?></td>
                 </tr>
               <?php endforeach; ?>
               <?php endif; ?>

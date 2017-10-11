@@ -21,7 +21,6 @@ class Sys_user extends CI_Model
 
 	public function get_user_all()
 	{	
-		$this->db->select('id, user, remarks');
 		$query = $this->db->get_where('sys_user', ['role' => '1'])->result_array();
 		return $query;
 	}
@@ -38,6 +37,18 @@ class Sys_user extends CI_Model
 	public function add_uesr($data)
 	{
 		$query = $this->db->insert('sys_user', $data);
+		if ($query) {
+			return TRUE;
+		}
+		return FALSE;
+	}
+
+	/**
+	* @param data array
+	*/
+	public function replace_uesr($data)
+	{
+		$query = $this->db->replace('sys_user', $data);
 		if ($query) {
 			return TRUE;
 		}
