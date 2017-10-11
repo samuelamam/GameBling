@@ -26,6 +26,40 @@
             background-color:#ffffff;
         }
     </style>
+    <style>
+        ._blue{
+            background: -webkit-linear-gradient(#a05459, #4c151c); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(#a05459, #4c151c); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(#a05459, #4c151c); /* Firefox 3.6 - 15 */
+            background: linear-gradient(#a05459, #4c151c); /* 标准的语法 */
+            box-shadow: 0px 1px 8px #fff inset;
+        }
+        ._box-wrap{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            border-radius: 50%;
+        }
+        ._box-wrap ._box-number{
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            position: absolute;
+            background: #fff;
+            top: 50%;
+            left: 50%;
+            margin-left: -35px;
+            margin-top: -35px;
+            text-align: center;
+            border-radius: 50%;
+            
+        }
+        ._box-wrap ._box-number span{
+            font-size: 34px;
+            color: #000;
+            font-weight: bold;
+        }
+    </style>
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
@@ -134,24 +168,43 @@
                             
                                     
                                 
-                                <div class="col-xs-12 col-lg-9">
-                                    <header class="panel-heading" style="text-align:center;background:#f5d67e">
+                                <div class="col-xs-12 col-lg-9" style="text-align:center;">
+                                    <header class="panel-heading" style="background:#f5d67e">
                                         testtest
                                     </header>
-                                    <div class="panel-body col-xs-12 col-lg-4" style="text-align: center;">
+                                    <div class="panel-body col-xs-12 col-lg-4">
                                         <table class="table table-bordered" id="table1">
                                         </table>
                                     </div>
-                                    <div class="panel-body col-xs-12 col-lg-4" style="text-align: center;">
+                                    <div class="panel-body col-xs-12 col-lg-4">
                                         <table class="table table-bordered" id="table2">
                                         </table>
                                     </div>
-                                    <div class="panel-body col-xs-12 col-lg-4" style="text-align: center;">
+                                    <div class="panel-body col-xs-12 col-lg-4">
                                         <table class="table table-bordered" id="table3">
                                         </table>
                                     </div>
+                                    <div class="panel-body col-xs-12 col-lg-4">
+                                        <table class="table table-bordered" id="table4">
+                                        </table>
+                                    </div>
+                                    <div class="panel-body col-xs-12 col-lg-4">
+                                        <table class="table table-bordered" id="table5">
+                                        </table>
+                                    </div>
+                                    <div class="panel-body col-xs-12 col-lg-4">
+                                        <table class="table table-bordered" id="table6">
+                                        </table>
+                                    </div>
+                                    <button class="btn btn-danger" type="button" id="search"">
+                                        <i class="ace-icon fa  fa-search  bigger-110"></i>
+                                        <span class="bigger-110 no-text-shadow">查询</span>
+                                    </button>
+                                    <button class="btn btn-danger" type="button" id="search"">
+                                        <i class="ace-icon fa  fa-search  bigger-110"></i>
+                                        <span class="bigger-110 no-text-shadow">重置</span>
+                                    </button>
                                 </div>
-
                                 <div class="col-xs-12 col-lg-3">
                                     <div class="col-xs-12 col-lg-12">
                                         <header class="panel-heading" style="text-align:center;background:#f5d67e">
@@ -159,7 +212,7 @@
                                         </header>
                                     </div>
                                     <div class="panel-body col-xs-12 col-lg-12" style="text-align: center;">
-                                        <table class="table table-bordered" id="table4">
+                                        <table class="table table-bordered" id="">
                                         <thead>
                                         <tr>
                                         <th style="text-align: center;width:15%">类型</th>
@@ -168,12 +221,17 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                            <td><select class="form-control"><option>1</option><option>2</option></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                            </td>
                                             <td><input type="text" class="form-control"></td>
                                             </tr>
                                         </tbody>
                                             <td colspan="2">
-                                                <button class="btn btn-xs   btn-danger" type="button" id="search">
+                                                <button class="btn btn-danger" type="button" id="search">
                                                     <i class="ace-icon fa  fa-search  bigger-110"></i>
                                                     <span class="bigger-110 no-text-shadow">查询</span>
                                                 </button>
@@ -186,7 +244,7 @@
                                         </header>
                                     </div>
                                     <div class="panel-body col-xs-12 col-lg-12" style="text-align: center;">
-                                        <table class="table table-bordered" id="table4">
+                                        <table class="table table-bordered" id="">
                                         <thead>
                                         <tr>
                                         <th style="text-align: center;width:15%">类型</th>
@@ -195,12 +253,17 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                            <td><select class="form-control"><option>1</option><option>2</option></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                            </td>
                                             <td><input type="text" class="form-control"></td>
                                             </tr>
                                         </tbody>
                                             <td colspan="2">
-                                                <button class="btn btn-xs   btn-danger" type="button" id="search">
+                                                <button class="btn btn-danger" type="button" id="search">
                                                     <i class="ace-icon fa  fa-search  bigger-110"></i>
                                                     <span class="bigger-110 no-text-shadow">查询</span>
                                                 </button>
@@ -254,21 +317,24 @@
                 var html_str1 = "";
                 var html_str2 = "";
                 var html_str3 = "";
-                // var html_str4 = "";
+                var html_str4 = "";
+                var html_str5 = "";
+                var html_str6 = "";
 
                 html_str1 += '';
                 html_str1 += '<thead>';
                 html_str1 += '<tr>';
-                html_str1 += '<th style="text-align: center;width:15%">test</th>';
-                html_str1 += '<th style="text-align: center;width:15%">test</th>';
+                html_str1 += '<th style="text-align: center;width:10%">test</th>';
+                html_str1 += '<th style="text-align: center;width:10%">test</th>';
                 html_str1 += '<th style="text-align: center;width:15%">stest</th>';
                 html_str1 += '</tr>';
                 html_str1 += '</thead>';
                 html_str1 += '<tbody>';
                 for (var i = 0; i < 17; i++) {
                     html_str1 += '<tr>';
+                    // html_str1 += '<td style="line-height:30px"><img src="/resources/images/'+result.value[i]+'.png"></td>';
                     html_str1 += '<td>'+result.value[i]+'</td>';
-                    html_str1 += '<td>'+result.price[i]+'</td>';
+                    html_str1 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
                     html_str1 += '<td><input type="text" class="form-control"></td>';
                     html_str1 += '</tr>';
                 }
@@ -285,7 +351,7 @@
                 for (var i = 17; i <33 ; i++) {
                     html_str2 += '<tr>';
                     html_str2 += '<td>'+result.value[i]+'</td>';
-                    html_str2 += '<td>'+result.price[i]+'</td>';
+                    html_str2 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
                     html_str2 += '<td><input type="text" class="form-control"></td>';
                     html_str2 += '</tr>';
                 }
@@ -302,33 +368,51 @@
                 for (var i = 33; i < 49; i++) {
                     html_str3 += '<tr>';
                     html_str3 += '<td>'+result.value[i]+'</td>';
-                    html_str3 += '<td>'+result.price[i]+'</td>';
+                    html_str3 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
                     html_str3 += '<td><input type="text" class="form-control"></td>';
                     html_str3 += '</tr>';
                 }
                 html_str3 += '</tbody>';
 
-                // html_str4 += '';
-                // html_str4 += '<thead>';
-                // html_str4 += '<tr>';
-                // html_str4 += '<th style="text-align: center;width:15%">号码</th>';
-                // html_str4 += '<th style="text-align: center;width:15%">赔率</th>';
-                // html_str4 += '<th style="text-align: center;width:15%">金额</th>';
-                // html_str4 += '</tr>';
-                // html_str4 += '</thead>';
-                // html_str4 += '<tbody>';
-                // for (var i = 36; i < 49; i++) {
-                //     html_str4 += '<tr>';
-                //     html_str4 += '<td>'+result.value[i]+'</td>';
-                //     html_str4 += '<td>'+result.price[i]+'</td>';
-                //     html_str4 += '<td><input type="text" class="form-control"></td>';
-                //     html_str4 += '</tr>';
-                // }
-                // html_str4 += '</tbody>';
+                html_str4 += '';
+                html_str4 += '<tbody>';
+                for (var i = 49; i < 55; i++) {
+                    html_str4 += '<tr>';
+                    html_str4 += '<td style="text-align: center;width:15%;line-height:30px">'+result.value[i]+'</td>';
+                    html_str4 += '<td style="text-align: center;width:15%;color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
+                    html_str4 += '<td style="text-align: center;width:15%"><input type="text" class="form-control"></td>';
+                    html_str4 += '</tr>';
+                }
+                html_str4 += '</tbody>';
+
+                html_str5 += '';
+                html_str5 += '<tbody>';
+                for (var i = 55; i < 60; i++) {
+                    html_str5 += '<tr>';
+                    html_str5 += '<td style="text-align: center;width:15%;line-height:30px">'+result.value[i]+'</td>';
+                    html_str5 += '<td style="text-align: center;width:15%;color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
+                    html_str5 += '<td style="text-align: center;width:15%"><input type="text" class="form-control"></td>';
+                    html_str5 += '</tr>';
+                }
+                html_str5 += '</tbody>';
+
+                html_str6 += '';
+                html_str6 += '<tbody>';
+                for (var i = 60; i < 65; i++) {
+                    html_str6 += '<tr>';
+                    html_str6 += '<td style="text-align: center;width:15%;line-height:30px">'+result.value[i]+'</td>';
+                    html_str6 += '<td style="text-align: center;width:15%;color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
+                    html_str6 += '<td style="text-align: center;width:15%"><input type="text" class="form-control"></td>';
+                    html_str6 += '</tr>';
+                }
+                html_str6 += '</tbody>';
+
                 $('#table1').html(html_str1);
                 $('#table2').html(html_str2);
                 $('#table3').html(html_str3);
-                // $('#table4').html(html_str4);
+                $('#table4').html(html_str4);
+                $('#table5').html(html_str5);
+                $('#table6').html(html_str6);
             }
 
         </script>
