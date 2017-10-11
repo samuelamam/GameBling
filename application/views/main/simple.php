@@ -22,7 +22,7 @@
         .input-group-addon {
             width: 10px;
         }
-        .background-color{
+        ..panel-heading{
             background-color:#ffffff;
         }
     </style>
@@ -118,7 +118,7 @@
                 <aside class="right-side">
 
                     <!-- Main content -->
-                    <section class="content">
+                    <section class="content" style="BACKGROUND: #ffffff;">
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="panel">
@@ -132,31 +132,82 @@
                                     </ul>
                                 </div>
                             
-                                    <header class="panel-heading col-xs-12 col-lg-9" style="text-align:center;border-right:15px white solid">
+                                    
+                                
+                                <div class="col-xs-12 col-lg-9">
+                                    <header class="panel-heading" style="text-align:center;background:#f5d67e">
                                         testtest
                                     </header>
-                                <header class="panel-heading col-xs-12 col-lg-3" style="text-align:center;border-left:10px white solid">
-                                        testtest123123
-                                    </header>
-                                <div>
-
-                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
+                                    <div class="panel-body col-xs-12 col-lg-4" style="text-align: center;">
                                         <table class="table table-bordered" id="table1">
                                         </table>
                                     </div>
-                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
+                                    <div class="panel-body col-xs-12 col-lg-4" style="text-align: center;">
                                         <table class="table table-bordered" id="table2">
                                         </table>
                                     </div>
-                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
+                                    <div class="panel-body col-xs-12 col-lg-4" style="text-align: center;">
                                         <table class="table table-bordered" id="table3">
                                         </table>
                                     </div>
-                                    <div class="panel-body col-xs-12 col-lg-3" style="text-align: center;">
+                                </div>
+
+                                <div class="col-xs-12 col-lg-3">
+                                    <div class="col-xs-12 col-lg-12">
+                                        <header class="panel-heading" style="text-align:center;background:#f5d67e">
+                                            快速
+                                        </header>
+                                    </div>
+                                    <div class="panel-body col-xs-12 col-lg-12" style="text-align: center;">
                                         <table class="table table-bordered" id="table4">
+                                        <thead>
+                                        <tr>
+                                        <th style="text-align: center;width:15%">类型</th>
+                                        <th style="text-align: center;width:15%">金额</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td><select class="form-control"><option>1</option><option>2</option></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            </tr>
+                                        </tbody>
+                                            <td colspan="2">
+                                                <button class="btn btn-xs   btn-danger" type="button" id="search">
+                                                    <i class="ace-icon fa  fa-search  bigger-110"></i>
+                                                    <span class="bigger-110 no-text-shadow">查询</span>
+                                                </button>
+                                            </td>
                                         </table>
                                     </div>
-
+                                    <div class="col-xs-12 col-lg-12">
+                                        <header class="panel-heading" style="text-align:center;background:#f5d67e">
+                                            快速
+                                        </header>
+                                    </div>
+                                    <div class="panel-body col-xs-12 col-lg-12" style="text-align: center;">
+                                        <table class="table table-bordered" id="table4">
+                                        <thead>
+                                        <tr>
+                                        <th style="text-align: center;width:15%">类型</th>
+                                        <th style="text-align: center;width:15%">金额</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td><select class="form-control"><option>1</option><option>2</option></td>
+                                            <td><input type="text" class="form-control"></td>
+                                            </tr>
+                                        </tbody>
+                                            <td colspan="2">
+                                                <button class="btn btn-xs   btn-danger" type="button" id="search">
+                                                    <i class="ace-icon fa  fa-search  bigger-110"></i>
+                                                    <span class="bigger-110 no-text-shadow">查询</span>
+                                                </button>
+                                            </td>
+                                        </table>
+                                    </div>
+                                </div>
                                 </div><!-- /.panel -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
@@ -203,18 +254,18 @@
                 var html_str1 = "";
                 var html_str2 = "";
                 var html_str3 = "";
-                var html_str4 = "";
+                // var html_str4 = "";
 
                 html_str1 += '';
                 html_str1 += '<thead>';
                 html_str1 += '<tr>';
-                html_str1 += '<th style="text-align: center;width:15%">号码</th>';
-                html_str1 += '<th style="text-align: center;width:15%">赔率</th>';
-                html_str1 += '<th style="text-align: center;width:15%">金额</th>';
+                html_str1 += '<th style="text-align: center;width:15%">test</th>';
+                html_str1 += '<th style="text-align: center;width:15%">test</th>';
+                html_str1 += '<th style="text-align: center;width:15%">stest</th>';
                 html_str1 += '</tr>';
                 html_str1 += '</thead>';
                 html_str1 += '<tbody>';
-                for (var i = 0; i < 12; i++) {
+                for (var i = 0; i < 17; i++) {
                     html_str1 += '<tr>';
                     html_str1 += '<td>'+result.value[i]+'</td>';
                     html_str1 += '<td>'+result.price[i]+'</td>';
@@ -225,13 +276,13 @@
                 html_str2 += '';
                 html_str2 += '<thead>';
                 html_str2 += '<tr>';
-                html_str2 += '<th style="text-align: center;width:15%">号码</th>';
-                html_str2 += '<th style="text-align: center;width:15%">赔率</th>';
-                html_str2 += '<th style="text-align: center;width:15%">金额</th>';
+                html_str2 += '<th style="text-align: center;width:15%">test</th>';
+                html_str2 += '<th style="text-align: center;width:15%">ste</th>';
+                html_str2 += '<th style="text-align: center;width:15%">tase</th>';
                 html_str2 += '</tr>';
                 html_str2 += '</thead>';
                 html_str2 += '<tbody>';
-                for (var i = 12; i < 24; i++) {
+                for (var i = 17; i <33 ; i++) {
                     html_str2 += '<tr>';
                     html_str2 += '<td>'+result.value[i]+'</td>';
                     html_str2 += '<td>'+result.price[i]+'</td>';
@@ -242,13 +293,13 @@
                 html_str3 += '';
                 html_str3 += '<thead>';
                 html_str3 += '<tr>';
-                html_str3 += '<th style="text-align: center;width:15%">号码</th>';
-                html_str3 += '<th style="text-align: center;width:15%">赔率</th>';
-                html_str3 += '<th style="text-align: center;width:15%">金额</th>';
+                html_str3 += '<th style="text-align: center;width:15%">test</th>';
+                html_str3 += '<th style="text-align: center;width:15%">taes</th>';
+                html_str3 += '<th style="text-align: center;width:15%">aste</th>';
                 html_str3 += '</tr>';
                 html_str3 += '</thead>';
                 html_str3 += '<tbody>';
-                for (var i = 24; i < 36; i++) {
+                for (var i = 33; i < 49; i++) {
                     html_str3 += '<tr>';
                     html_str3 += '<td>'+result.value[i]+'</td>';
                     html_str3 += '<td>'+result.price[i]+'</td>';
@@ -257,27 +308,27 @@
                 }
                 html_str3 += '</tbody>';
 
-                html_str4 += '';
-                html_str4 += '<thead>';
-                html_str4 += '<tr>';
-                html_str4 += '<th style="text-align: center;width:15%">号码</th>';
-                html_str4 += '<th style="text-align: center;width:15%">赔率</th>';
-                html_str4 += '<th style="text-align: center;width:15%">金额</th>';
-                html_str4 += '</tr>';
-                html_str4 += '</thead>';
-                html_str4 += '<tbody>';
-                for (var i = 36; i < 49; i++) {
-                    html_str4 += '<tr>';
-                    html_str4 += '<td>'+result.value[i]+'</td>';
-                    html_str4 += '<td>'+result.price[i]+'</td>';
-                    html_str4 += '<td><input type="text" class="form-control"></td>';
-                    html_str4 += '</tr>';
-                }
-                html_str4 += '</tbody>';
+                // html_str4 += '';
+                // html_str4 += '<thead>';
+                // html_str4 += '<tr>';
+                // html_str4 += '<th style="text-align: center;width:15%">号码</th>';
+                // html_str4 += '<th style="text-align: center;width:15%">赔率</th>';
+                // html_str4 += '<th style="text-align: center;width:15%">金额</th>';
+                // html_str4 += '</tr>';
+                // html_str4 += '</thead>';
+                // html_str4 += '<tbody>';
+                // for (var i = 36; i < 49; i++) {
+                //     html_str4 += '<tr>';
+                //     html_str4 += '<td>'+result.value[i]+'</td>';
+                //     html_str4 += '<td>'+result.price[i]+'</td>';
+                //     html_str4 += '<td><input type="text" class="form-control"></td>';
+                //     html_str4 += '</tr>';
+                // }
+                // html_str4 += '</tbody>';
                 $('#table1').html(html_str1);
                 $('#table2').html(html_str2);
                 $('#table3').html(html_str3);
-                $('#table4').html(html_str4);
+                // $('#table4').html(html_str4);
             }
 
         </script>
