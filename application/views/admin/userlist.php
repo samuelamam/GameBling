@@ -37,7 +37,7 @@
                   <td><?=$v['remarks']?></td>
                   <td><?=$v['create_time']?></td>
                   <td>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#edit">修改</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="makemodal(<?=$v['id']?>)">修改</button>
                     <button type="button" class="btn btn-danger btn-sm">删除</button>
                   </td>
                 </tr>
@@ -67,12 +67,55 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">修改会员</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">
+            <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">登陆账号名：</span>
+                  <input type="text" id="user" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">登陆密码：</span>
+                  <input type="text" id="passwd" placeholder="不修改无需填写" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">角色选择：
+                  <select class="custom-select input-group input-group-lg" id="role">
+                    <option selected>请选择角色</option>
+                    <option value="0">管理员</option>
+                    <option value="1">普通会员</option>
+                  </select>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">备注：</span>
+                  <input type="text" id="remarks" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="login.html">Logout</a>
@@ -122,7 +165,21 @@
       }
     });
 
-    $('#del').alert();
+    function makemodal(id) {
+      $.post(
+        '<?=base_url().'admin/user/getuser'?>', 
+        {id:id}, 
+        function (result) {
+          if (result != 'err_getuser') {
+            $('#user').val(result.user);
+            $('#role').val(result.role);
+            $('#remarks').val(result.remarks);
+            $('#edit').modal();
+            return;
+          }
+          alert('数据库错误');
+        });
+    }
   </script>
 </body>
 

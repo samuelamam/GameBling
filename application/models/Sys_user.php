@@ -27,7 +27,7 @@ class Sys_user extends CI_Model
 
 	public function get_user_one($role, $id)
 	{
-		$query = $this->db->get_where('sys_user'. ['role' => $role, 'id' => '$id'], 1)->row_array();
+		$query = $this->db->get_where('sys_user', ['role' => $role, 'id' => $id], 1)->row_array();
 		return $query;
 	}
 

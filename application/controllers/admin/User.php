@@ -37,4 +37,16 @@ class User extends CI_Controller
 			echo 'success';
 		}
 	}
+
+	public function getuser()
+	{
+		$id = $this->input->post('id');
+		$this->load->model('sys_user');
+		$userinfo = $this->sys_user->get_user_one('1', $id);
+		if ($userinfo) {
+			$this->output->set_content_type('application/json')->set_output(json_encode($userinfo));
+			return;
+		}
+		echo 'err_getuser';
+	}
 }
