@@ -172,6 +172,7 @@
                                     <header class="panel-heading" style="background:#f5d67e">
                                         testtest
                                     </header>
+                                <div class="row">
                                     <div class="panel-body col-xs-12 col-lg-4">
                                         <table class="table table-bordered" id="table1">
                                         </table>
@@ -184,6 +185,8 @@
                                         <table class="table table-bordered" id="table3">
                                         </table>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="panel-body col-xs-12 col-lg-4">
                                         <table class="table table-bordered" id="table4">
                                         </table>
@@ -196,6 +199,7 @@
                                         <table class="table table-bordered" id="table6">
                                         </table>
                                     </div>
+                                </div>
                                     <button class="btn btn-danger" type="button" id="search"">
                                         <i class="ace-icon fa  fa-search  bigger-110"></i>
                                         <span class="bigger-110 no-text-shadow">查询</span>
