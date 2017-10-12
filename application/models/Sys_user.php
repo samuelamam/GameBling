@@ -14,7 +14,6 @@ class Sys_user extends CI_Model
 
 	public function get_sys_all()
 	{	
-		$this->db->select('id, user, remarks');
 		$query = $this->db->get_where('sys_user', ['role' => '0'])->result_array();
 		return $query;
 	}

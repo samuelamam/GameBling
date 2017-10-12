@@ -51,18 +51,21 @@
             <span class="nav-link-text">下单数据</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+       <!--  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="<?=base_url().'admin/admin/list'?>">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">管理员管理</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="uesr_admin">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#uesr_admin" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">会员管理</span>
+            <span class="nav-link-text">账号管理</span>
           </a>
           <ul class="sidenav-second-level collapse" id="uesr_admin">
+            <li>
+              <a href="<?=base_url().'admin/admin/list'?>">管理员列表</a>
+            </li>
             <li>
               <a href="<?=base_url().'admin/user/userlist'?>">会员列表</a>
             </li>
@@ -136,12 +139,12 @@
             </li>
           </ul>
         </li> -->
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Link</span>
           </a>
-        </li>
+        </li> -->
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

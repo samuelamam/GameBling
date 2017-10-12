@@ -34,7 +34,7 @@
                   <td><?=$v['value']?></td>
                   <td><?=$v['price']?></td>
                   <td>
-                    <a>修改</a>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="makemodal(<?=$v['value']?>)">修改</button>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -59,6 +59,45 @@
       <i class="fa fa-angle-up"></i>
     </a>
 
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">修改下注</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">号码：</span>
+                  <input type="text" disabled id="value" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">赔率：</span>
+                  <input type="text" id="price" placeholder="不修改无需填写" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+            <button class="btn btn-primary" id="checkedit">修改</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="/application/views/admin/vendor/jquery/jquery.min.js"></script>
     <script src="/application/views/admin/vendor/popper/popper.min.js"></script>
@@ -70,10 +109,6 @@
     <!-- Custom scripts for all pages-->
     <script src="/application/views/admin/js/sb-admin.min.js"></script>
     <script src="/application/views/admin/js/sb-admin-datatables.min.js"></script>
-
-    <div class="alert alert-danger alert-dismissible fade in" role="alert">
-      <button id="del" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">删除</span></button>
-    </div>
     
   </div>
 
@@ -106,9 +141,43 @@
       },
       paging : false,
       searching : false,
+      ordering : false
     });
 
-    $('#del').alert();
+    function makemodal(value) {
+      $.post(
+        '<?=base_url().'admin/stake/getinfo'?>', 
+        {value:value}, 
+        function (result) {
+          if (result != 'err_getuser') {
+            console.log(result);
+            $('#value').val(result.value);
+            $('#price').val(result.price);
+            $('#edit').modal();
+            return;
+          }
+          alert('数据库错误');
+        });
+    }
+
+    $('#checkedit').click(function () {
+      if ($('#value').val() == '' || $('#price').val() == '') {
+          $('#alert').text('赔率不能为空').addClass('show active');
+          return;
+        }
+        $.post(
+          '<?=base_url().'admin/stake/edit'?>', 
+          {
+            value:$('#value').val(),
+            price:$('#price').val(),
+          }, 
+          function (result) {
+            if (result == 'success') {
+              alert('修改成功');
+              window.location.reload();
+            }
+        });
+    });
   </script>
 </body>
 
