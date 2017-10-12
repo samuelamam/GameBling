@@ -3,13 +3,14 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">后台管理员</a>
+          <a href="index.html">账号管理</a>
         </li>
         <li class="breadcrumb-item active">列表</li>
       </ol>
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> 数据表格</div>
+          <i class="fa fa-table"></i> 管理员数据</div>
+        <div class="alert alert-primary" role="alert" data-dismiss="alert" style="display: none;" id="alertdel">删除用户成功!</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -33,12 +34,12 @@
                 <?php if (!empty($adminarray)):?>
                 <?php foreach ($adminarray as $v):?>
                 <tr>
-                  <td><?=$v['id']?></td>
                   <td><?=$v['user']?></td>
                   <td><?=$v['remarks']?></td>
+                  <td><?=$v['create_time']?></td>
                   <td>
-                    <a>修改</a>
-                    <a id="del">删除</a>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="makemodal(<?=$v['id']?>)">修改</button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="del(<?=$v['id']?>)">删除</button>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -62,7 +63,70 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-
+    <!-- Logout Modal-->
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">修改会员</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">登陆账号名：</span>
+                  <input type="text" disabled id="user" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">登陆密码：</span>
+                  <input type="text" id="passwd" placeholder="不修改无需填写" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">角色选择：
+                  <select class="custom-select input-group input-group-lg" id="role">
+                    <option selected style="display: none;">请选择角色</option>
+                    <option value="0">管理员</option>
+                    <option value="1">普通会员</option>
+                  </select>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">备注：</span>
+                  <input type="text" id="remarks" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div id="alert" class="alert alert-danger fade" role="alert"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+            <button class="btn btn-primary" id="checkedit">修改</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="/application/views/admin/vendor/jquery/jquery.min.js"></script>
     <script src="/application/views/admin/vendor/popper/popper.min.js"></script>
@@ -74,11 +138,6 @@
     <!-- Custom scripts for all pages-->
     <script src="/application/views/admin/js/sb-admin.min.js"></script>
     <script src="/application/views/admin/js/sb-admin-datatables.min.js"></script>
-
-    <div class="alert alert-danger alert-dismissible fade in" role="alert">
-      <button id="del" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">删除</span></button>
-    </div>
-    
   </div>
 
   <script type="text/javascript">
@@ -110,7 +169,54 @@
       }
     });
 
-    $('#del').alert();
+    function makemodal(id) {
+      $.post(
+        '<?=base_url().'admin/admin/getuser'?>', 
+        {id:id}, 
+        function (result) {
+          if (result != 'err_getuser') {
+            $('#user').val(result.user);
+            $('#role').val(result.role);
+            $('#remarks').val(result.remarks);
+            $('#edit').modal();
+            return;
+          }
+          alert('数据库错误');
+        });
+    }
+
+    $('#checkedit').click(function () {
+      if ($('#user').val() == '' || $('#role').val() == '') {
+          $('#alert').text('登陆名、身份不能为空').addClass('show active');
+          return;
+        }
+        $.post(
+          '<?=base_url().'admin/user/edit'?>', 
+          {
+            user:$('#user').val(),
+            passwd:$('#passwd').val(),
+            role:$('#role').val(),
+            remarks:$('#remarks').val()
+          }, 
+          function (result) {
+            if (result == 'success') {
+              alert('修改成功');
+              window.location.reload();
+            }
+        });
+    });
+
+    function del(id) {
+      var can = confirm("确定删除用户？");
+      if (can) {
+        $.post('<?=base_url().'admin/user/del'?>', {id:id}, function (result) {
+          if (result == 'success') {
+            $('#alertdel').show();
+            setTimeout("window.location.reload()", 3000);
+          }
+        });
+      }
+    }
   </script>
 </body>
 

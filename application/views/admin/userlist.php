@@ -10,6 +10,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> 数据表格</div>
+        <div class="alert alert-primary" role="alert" data-dismiss="alert" style="display: none;" id="alertdel">删除用户成功!</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -38,7 +39,7 @@
                   <td><?=$v['create_time']?></td>
                   <td>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="makemodal(<?=$v['id']?>)">修改</button>
-                    <button type="button" class="btn btn-danger btn-sm">删除</button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="del(<?=$v['id']?>)">删除</button>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -97,7 +98,7 @@
                 <div class="input-group input-group-lg">
                   <span class="input-group-addon">角色选择：
                   <select class="custom-select input-group input-group-lg" id="role">
-                    <option selected>请选择角色</option>
+                    <option selected style="display: none;">请选择角色</option>
                     <option value="0">管理员</option>
                     <option value="1">普通会员</option>
                   </select>
@@ -112,6 +113,9 @@
                   <span class="input-group-addon">备注：</span>
                   <input type="text" id="remarks" name="" class="form-control" aria-label="Amount (to the nearest dollar)">
                 </div>
+              </div>
+              <div class="col-sm-4">
+                <div id="alert" class="alert alert-danger fade" role="alert"></div>
               </div>
             </div>
           </div>
@@ -201,6 +205,18 @@
             }
         });
     });
+
+    function del(id) {
+      var can = confirm("确定删除用户？");
+      if (can) {
+        $.post('<?=base_url().'admin/user/del'?>', {id:id}, function (result) {
+          if (result == 'success') {
+            $('#alertdel').show();
+            setTimeout("window.location.reload()", 3000);
+          }
+        });
+      }
+    }
   </script>
 </body>
 

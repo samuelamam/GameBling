@@ -2,11 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Director | Simple Tables</title>
+        <title>投注站</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <meta name="description" content="Developed By M Abdur Rokib Promy">
+        <meta name="description" content="Deveromy">
         <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
-        <!-- bootstrap 3.0.2 -->
         <link href="/application/views/main/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="/resources/assets/css/jquery-ui.custom.min.css"/>
         <!-- font Awesome -->
@@ -24,40 +23,6 @@
         }
         ..panel-heading{
             background-color:#ffffff;
-        }
-    </style>
-    <style>
-        ._blue{
-            background: -webkit-linear-gradient(#a05459, #4c151c); /* Safari 5.1 - 6.0 */
-            background: -o-linear-gradient(#a05459, #4c151c); /* Opera 11.1 - 12.0 */
-            background: -moz-linear-gradient(#a05459, #4c151c); /* Firefox 3.6 - 15 */
-            background: linear-gradient(#a05459, #4c151c); /* 标准的语法 */
-            box-shadow: 0px 1px 8px #fff inset;
-        }
-        ._box-wrap{
-            width: 100px;
-            height: 100px;
-            position: relative;
-            border-radius: 50%;
-        }
-        ._box-wrap ._box-number{
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            position: absolute;
-            background: #fff;
-            top: 50%;
-            left: 50%;
-            margin-left: -35px;
-            margin-top: -35px;
-            text-align: center;
-            border-radius: 50%;
-            
-        }
-        ._box-wrap ._box-number span{
-            font-size: 34px;
-            color: #000;
-            font-weight: bold;
         }
     </style>
     <body class="skin-black">
@@ -83,16 +48,17 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
-                                <span>Jane Doe <i class="caret"></i></span>
+                                <span><?php print_r($_SESSION['index_user']) ?><i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                                <li>
+                                    <!-- <a data-toggle="modal"> -->
+                                    <a href="/index/personal/personal">
+                                    <i class="fa fa-cog fa-fw pull-right"></i>
+                                        下单信息
+                                    </a>
+                                </li>
                                 <li class="divider"></li>
-                                    <li>
-                                        <a data-toggle="modal" href="#modal-user-settings">
-                                        <i class="fa fa-cog fa-fw pull-right"></i>
-                                            下单信息
-                                        </a>
-                                    </li>
                                 <li>
                                     <a href="<?=base_url('index/login/index')?>" id="logout"><i class="fa fa-ban fa-fw pull-right"></i> 退出登录</a>
                                 </li>
@@ -154,7 +120,7 @@
                     <!-- Main content -->
                     <section class="content" style="BACKGROUND: #ffffff;">
                         <div class="row">
-                            <div class="col-md-12 col-xs-12">
+                            <div class="col-xs-12 col-lg-12">
                                 <div class="panel">
                                     <ul class="nav nav-pills nav-justified">
                                         <li class="active"><a href="#">六test</a></li>
@@ -165,13 +131,15 @@
                                         <li class="disabled"><a href="#">test</a></li>
                                     </ul>
                                 </div>
+                            </div>
                             
                                     
-                                
-                                <div class="col-xs-12 col-lg-9" style="text-align:center;">
+                            <div class="col-xs-12 col-lg-9">
+                                <div class="col-xs-12 col-lg-12" style="text-align:center;">
                                     <header class="panel-heading" style="background:#f5d67e">
                                         testtest
                                     </header>
+                                <div class="row">
                                     <div class="panel-body col-xs-12 col-lg-4">
                                         <table class="table table-bordered" id="table1">
                                         </table>
@@ -184,6 +152,16 @@
                                         <table class="table table-bordered" id="table3">
                                         </table>
                                     </div>
+                                </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                <div class="col-xs-12 col-lg-12" style="text-align:center;">
+=======
+                                <div class="row">
+>>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
+=======
+                                <div class="row">
+>>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
                                     <div class="panel-body col-xs-12 col-lg-4">
                                         <table class="table table-bordered" id="table4">
                                         </table>
@@ -196,6 +174,14 @@
                                         <table class="table table-bordered" id="table6">
                                         </table>
                                     </div>
+                                </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                <div class="panel-body col-xs-12 col-lg-12" style="text-align:center;">
+=======
+>>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
+=======
+>>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
                                     <button class="btn btn-danger" type="button" id="search"">
                                         <i class="ace-icon fa  fa-search  bigger-110"></i>
                                         <span class="bigger-110 no-text-shadow">查询</span>
@@ -205,6 +191,7 @@
                                         <span class="bigger-110 no-text-shadow">重置</span>
                                     </button>
                                 </div>
+                            </div>
                                 <div class="col-xs-12 col-lg-3">
                                     <div class="col-xs-12 col-lg-12">
                                         <header class="panel-heading" style="text-align:center;background:#f5d67e">
@@ -271,7 +258,6 @@
                                         </table>
                                     </div>
                                 </div>
-                                </div><!-- /.panel -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
                     </section><!-- /.content -->
@@ -332,7 +318,7 @@
                 html_str1 += '<tbody>';
                 for (var i = 0; i < 17; i++) {
                     html_str1 += '<tr>';
-                    // html_str1 += '<td style="line-height:30px"><img src="/resources/images/'+result.value[i]+'.png"></td>';
+                    // html_str1 += '<td><img src="/resources/images/'+result.value[i]+'.png"></td>';
                     html_str1 += '<td>'+result.value[i]+'</td>';
                     html_str1 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
                     html_str1 += '<td><input type="text" class="form-control"></td>';
@@ -350,6 +336,7 @@
                 html_str2 += '<tbody>';
                 for (var i = 17; i <33 ; i++) {
                     html_str2 += '<tr>';
+                    // html_str2 += '<td><img src="/resources/images/'+result.value[i]+'.png"></td>';
                     html_str2 += '<td>'+result.value[i]+'</td>';
                     html_str2 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
                     html_str2 += '<td><input type="text" class="form-control"></td>';
@@ -367,6 +354,7 @@
                 html_str3 += '<tbody>';
                 for (var i = 33; i < 49; i++) {
                     html_str3 += '<tr>';
+                    // html_str3 += '<td><img src="/resources/images/'+result.value[i]+'.png"></td>';
                     html_str3 += '<td>'+result.value[i]+'</td>';
                     html_str3 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
                     html_str3 += '<td><input type="text" class="form-control"></td>';
@@ -410,9 +398,9 @@
                 $('#table1').html(html_str1);
                 $('#table2').html(html_str2);
                 $('#table3').html(html_str3);
-                $('#table4').html(html_str4);
-                $('#table5').html(html_str5);
-                $('#table6').html(html_str6);
+                // $('#table4').html(html_str4);
+                // $('#table5').html(html_str5);
+                // $('#table6').html(html_str6);
             }
 
         </script>

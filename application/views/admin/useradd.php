@@ -35,7 +35,7 @@
           <div class="input-group input-group-lg">
             <span class="input-group-addon">角色选择：
             <select class="custom-select input-group input-group-lg" id="role">
-              <option selected>请选择角色</option>
+              <option selected disabled="" style="display: none;">请选择角色</option>
               <option value="0">管理员</option>
               <option value="1">普通会员</option>
             </select>

@@ -10,4 +10,5 @@ class Lhc_buy extends CI_Model
 		$query = $this->db->get('lhc_buy')->result_array();
 		return $query;
 	}
+
 }

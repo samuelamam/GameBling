@@ -64,4 +64,18 @@ class User extends CI_Controller
 			echo 'success';
 		}
 	}
+
+	public function del()
+	{
+		$id = $this->input->post('id');
+
+		$this->load->model('sys_user');
+		$query = $this->sys_user->del_user($id);
+		if ($query) {
+			echo 'success';
+			return;
+		}
+		echo 'err_del';
+		return;
+	}
 }
