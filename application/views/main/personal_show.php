@@ -136,7 +136,7 @@
                                   <thead>
                                     <tr>
                                       <th>用户名</th>
-                                      <th>组合</th>
+                                      <!-- <th>组合</th> -->
                                       <th>购买号码</th>
                                       <th>下单金额（元）</th>
                                       <th>时间</th>
@@ -147,7 +147,7 @@
                                     <?php foreach ($orderarray as $v):?>
                                     <tr>
                                       <td><?=$v['user']?></td>
-                                      <td><?=BUYTYPE[$v['buy_type']]?></td>
+                                      <!-- <td><?=BUYTYPE[$v['buy_type']]?></td> -->
                                       <td><?=$v['buy_number']?></td>
                                       <td>￥<?=$v['price']?></td>
                                       <td><?=$v['time']?></td>
