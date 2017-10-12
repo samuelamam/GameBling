@@ -32,8 +32,7 @@
         <header class="header">
             <a class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                <!-- VIP中心 -->
-                test
+                VIP中心
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -48,22 +47,9 @@
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span><?php print_r($_SESSION['index_user']) ?><i class="caret"></i></span>
+                            <a href="<?=base_url('index/login/index')?>">
+                                <i class="fa fa-fw fa-sign-out"></i>退出登录
                             </a>
-                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="divider"></li>
-                                    <li>
-                                        <a data-toggle="modal" href="/">
-                                        <i class="fa fa-cog fa-fw pull-right"></i>
-                                            返回首页
-                                        </a>
-                                    </li>
-                                <li>
-                                    <a href="<?=base_url('index/login/index')?>" id="logout"><i class="fa fa-ban fa-fw pull-right"></i> 退出登录</a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -80,7 +66,7 @@
                             <img src="/application/views/main/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>您好，贵宾</p>
+                            <p>您好  <?php print_r($_SESSION['index_user']) ?></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -96,18 +82,18 @@
                     </form>
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>test</span>
+                            <a href="#" id="Fanhui" style="cursor:pointer">
+                                <i class="fa fa-dashboard"></i> <span>返回大厅</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a herf="#" id="Xiad" style="cursor:pointer">
+                                <i class="fa fa-gavel"></i> <span>下单信息</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-gavel"></i> <span>test</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-globe"></i> <span>test</span>
+                                <i class="fa fa-globe"></i> <span>开奖信息</span>
                             </a>
                         </li>
                     </ul>
@@ -227,6 +213,14 @@
               }
             }
           });
+
+            $("#Xiad").click(function(){
+                self.location='/index/personal/personal'; 
+            });
+
+            $("#Fanhui").click(function(){
+                self.location='/'; 
+            });
 
           $('#del').alert();
         </script>
