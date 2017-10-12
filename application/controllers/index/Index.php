@@ -16,4 +16,10 @@ class Index extends CI_Controller
 		$this->load->view('main/simple');
 	}
 
+	public function test()
+	{
+		$data = $this->input->post('data');
+		var_dump(json_decode($data, TRUE));
+	}
+
 }

@@ -153,11 +153,11 @@
                                     </div>
                                 </div>
                                 <div class="panel-body col-xs-12 col-lg-12" style="text-align:center;">
-                                    <button class="btn btn-danger" type="button" id="search"">
+                                    <button class="btn btn-danger" type="button" id="xiazhu"">
                                         <i class="ace-icon fa  fa-search  bigger-110"></i>
-                                        <span class="bigger-110 no-text-shadow">下注</span>
+                                        <span class="bigger-110 no-text-shadow" onclick="xiazhu();">下注</span>
                                     </button>
-                                    <button class="btn btn-danger" type="button" id="search"">
+                                    <button class="btn btn-danger" type="button">
                                         <i class="ace-icon fa  fa-search  bigger-110"></i>
                                         <span class="bigger-110 no-text-shadow">清空</span>
                                     </button>
@@ -450,7 +450,7 @@
                     html_str1 += '<td><img src="/resources/images/'+result.value[i]+'.png"></td>';
                     // html_str1 += '<td>'+result.value[i]+'</td>';
                     html_str1 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
-                    html_str1 += '<td><input type="text" class="form-control"></td>';
+                    html_str1 += '<td><input type="text" class="form-control" number='+result.value[i]+'></td>';
                     html_str1 += '</tr>';
                 }
 
@@ -468,7 +468,7 @@
                     html_str2 += '<td><img src="/resources/images/'+result.value[i]+'.png"></td>';
                     // html_str2 += '<td>'+result.value[i]+'</td>';
                     html_str2 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
-                    html_str2 += '<td><input type="text" class="form-control"></td>';
+                    html_str2 += '<td><input type="text" class="form-control" number='+result.value[i]+'></td>';
                     html_str2 += '</tr>';
                 }
 
@@ -486,7 +486,7 @@
                     html_str3 += '<td><img src="/resources/images/'+result.value[i]+'.png"></td>';
                     // html_str3 += '<td>'+result.value[i]+'</td>';
                     html_str3 += '<td style="color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
-                    html_str3 += '<td><input type="text" class="form-control"></td>';
+                    html_str3 += '<td><input type="text" class="form-control" number='+result.value[i]+'></td>';
                     html_str3 += '</tr>';
                 }
                 html_str3 += '</tbody>';
@@ -497,7 +497,7 @@
                     html_str4 += '<tr>';
                     html_str4 += '<td style="text-align: center;width:15%;line-height:30px">'+result.value[i]+'</td>';
                     html_str4 += '<td style="text-align: center;width:15%;color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
-                    html_str4 += '<td style="text-align: center;width:15%"><input type="text" class="form-control"></td>';
+                    html_str4 += '<td style="text-align: center;width:15%"><input type="text" class="form-control" number='+result.value[i]+'></td>';
                     html_str4 += '</tr>';
                 }
                 html_str4 += '</tbody>';
@@ -508,7 +508,7 @@
                     html_str5 += '<tr>';
                     html_str5 += '<td style="text-align: center;width:15%;line-height:30px">'+result.value[i]+'</td>';
                     html_str5 += '<td style="text-align: center;width:15%;color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
-                    html_str5 += '<td style="text-align: center;width:15%"><input type="text" class="form-control"></td>';
+                    html_str5 += '<td style="text-align: center;width:15%"><input type="text" class="form-control" number='+result.value[i]+'></td>';
                     html_str5 += '</tr>';
                 }
                 html_str5 += '</tbody>';
@@ -519,7 +519,7 @@
                     html_str6 += '<tr>';
                     html_str6 += '<td style="text-align: center;width:15%;line-height:30px">'+result.value[i]+'</td>';
                     html_str6 += '<td style="text-align: center;width:15%;color:red;line-height:30px"><strong>'+result.price[i]+'</strong></td>';
-                    html_str6 += '<td style="text-align: center;width:15%"><input type="text" class="form-control"></td>';
+                    html_str6 += '<td style="text-align: center;width:15%"><input type="text" class="form-control" number='+result.value[i]+'></td>';
                     html_str6 += '</tr>';
                 }
                 html_str6 += '</tbody>';
@@ -531,6 +531,25 @@
                 $('#table5').html(html_str5);
                 $('#table6').html(html_str6);
             }
+
+        function xiazhu() {
+            var data = new Array;
+            var i = 0;
+            $("input[type='text']").each(function () {
+                if ($(this).val() != '') {
+                    data[i] = {
+                        value : $(this).attr('number'),
+                        price : $(this).val()
+                    }
+                    i++;
+                }
+            });
+            data = JSON.stringify(data);
+            $.post('index/test', {data:data}, function () {
+                // body...
+            });
+        }
+            
 
         </script>
     </body>
