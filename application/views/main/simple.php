@@ -155,7 +155,11 @@
                                 </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <div class="col-xs-12 col-lg-12" style="text-align:center;">
+=======
+                                <div class="row">
+>>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
 =======
                                 <div class="row">
 >>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
@@ -177,7 +181,10 @@
                                 </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <div class="panel-body col-xs-12 col-lg-12" style="text-align:center;">
+=======
+>>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
 =======
 >>>>>>> 1a189dfb6fbdec7c9ff9cf265a388059550878d1
 =======
